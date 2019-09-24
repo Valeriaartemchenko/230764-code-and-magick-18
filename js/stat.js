@@ -1,8 +1,8 @@
 'use strict';
 
 var CLOUD_POSITION = {
-  x: 100,
-  y: 10
+  X: 100,
+  Y: 10
 };
 
 var CLOUD_WIDTH = 420;
@@ -21,7 +21,6 @@ var HISTOGRAM_COLUMN_WIDTH = 40;
 var HISTOGRAM_COLUMN_HEIGHT = 150;
 var HISTOGRAM_COLUMN_MARGIN = 50;
 var HISTOGRAM_MARGIN_LEFT = 70;
-var RANDOM_SATURATION = Math.floor(Math.random() * 100 + 1);
 var HISTOGRAM_COLUMN_COLOR_SELF = 'rgba(255, 0, 0, 1)';
 var HISTOGRAM_TEXT_INTERVAL = 5;
 
@@ -29,7 +28,7 @@ var SELF_NAME = 'Вы';
 var FIELD_HEIGHT = 250;
 
 var getPlayerColour = function (name) {
-  return name === SELF_NAME ? HISTOGRAM_COLUMN_COLOR_SELF : 'hsl(240, ' + RANDOM_SATURATION + '%, 50%)';
+  return name === SELF_NAME ? HISTOGRAM_COLUMN_COLOR_SELF : 'hsl(240, ' + (Math.random() * 100 + 1) + '%, 50%)';
 };
 
 var getMaxTime = function (times) {
@@ -51,10 +50,10 @@ window.renderStatistics = function (ctx, names, times) {
 
 var drawCloud = function (ctx) {
   ctx.fillStyle = CLOUD_SHADOW_COLOR;
-  ctx.fillRect(CLOUD_POSITION.x + CLOUD_SHADOW_OFFSET, CLOUD_POSITION.y + CLOUD_SHADOW_OFFSET, CLOUD_WIDTH, CLOUD_HEIGHT);
+  ctx.fillRect(CLOUD_POSITION.X + CLOUD_SHADOW_OFFSET, CLOUD_POSITION.Y + CLOUD_SHADOW_OFFSET, CLOUD_WIDTH, CLOUD_HEIGHT);
 
   ctx.fillStyle = CLOUD_COLOR;
-  ctx.fillRect(CLOUD_POSITION.x, CLOUD_POSITION.y, CLOUD_WIDTH, CLOUD_HEIGHT);
+  ctx.fillRect(CLOUD_POSITION.X, CLOUD_POSITION.Y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
 var drawText = function (ctx) {
@@ -62,7 +61,7 @@ var drawText = function (ctx) {
   ctx.fillStyle = CLOUD_TEXT_COLOR;
 
   for (var i = 0; i < CLOUD_TEXT.length; i++) {
-    ctx.fillText(CLOUD_TEXT[i], CLOUD_POSITION.x + CLOUD_TEXT_PADDING, CLOUD_POSITION.y + (CLOUD_TEXT_SIZE + CLOUD_TEXT_PADDING) * (i + 1));
+    ctx.fillText(CLOUD_TEXT[i], CLOUD_POSITION.X + CLOUD_TEXT_PADDING, CLOUD_POSITION.Y + (CLOUD_TEXT_SIZE + CLOUD_TEXT_PADDING) * (i + 1));
   }
 };
 
