@@ -27,8 +27,6 @@ var HISTOGRAM_TEXT_INTERVAL = 5;
 var SELF_NAME = 'Вы';
 var FIELD_HEIGHT = 250;
 
-var WIZARDS_NUMBER = 4;
-
 var getPlayerColour = function (name) {
   return name === SELF_NAME ? HISTOGRAM_COLUMN_COLOR_SELF : 'hsl(240, ' + (Math.random() * 100 + 1) + '%, 50%)';
 };
